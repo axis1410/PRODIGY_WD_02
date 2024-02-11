@@ -2,7 +2,7 @@
 
 import { useTimeContext } from "@/context/TimeContext";
 import formatTime from "@/utils/formatTime";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 export default function LapTable() {
   const { stoppedTime, laps, setLaps } = useTimeContext();
