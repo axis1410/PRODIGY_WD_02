@@ -1,13 +1,15 @@
 "use client";
 
+import { useTimeContext } from "@/context/TimeContext";
 import { useEffect, useState } from "react";
 
 export default function Stopwatch() {
+  const { stoppedTime, setStoppedTime, clearStoppedTime } = useTimeContext();
   const [time, setTime] = useState<number>(0);
   const [isRunning, setIsRunning] = useState<boolean>(false);
 
   useEffect(() => {
-    let intervalId: any;
+    let intervalId: NodeJS.Timeout;
 
     if (isRunning) {
       intervalId = setInterval(() => setTime(time + 1), 10);
@@ -21,8 +23,17 @@ export default function Stopwatch() {
   const seconds = Math.floor((time % 6000) / 100);
   const milliseconds = time % 100;
 
-  const startAndStop = () => setIsRunning((prev) => !prev);
-  const reset = () => setTime(0);
+  const startAndStop = () => {
+    if (isRunning) {
+      setStoppedTime(time);
+    }
+    setIsRunning((prev) => !prev);
+  };
+
+  const reset = () => {
+    setTime(0);
+    clearStoppedTime();
+  };
 
   return (
     <div className="flex flex-col justify-center items-center mt-20">
