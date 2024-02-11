@@ -1,6 +1,9 @@
 {
-  "extends": ["development"],
+  "extends": [
+    "development"
+  ],
   "hints": {
-    "button-type": "off"
+    "button-type": "off",
+    "typescript-config/is-valid": "off"
   }
 }
