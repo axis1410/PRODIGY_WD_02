@@ -44,13 +44,13 @@ export default function Stopwatch() {
       </p>
       <div className="flex justify-center">
         <button
-          className="m-[20px] border-0 px-4 py-2 rounded-md cursor-pointer bg-indigo-500 text-white"
+          className="m-[20px] border-0 px-10 py-2 rounded-md cursor-pointer bg-indigo-500 text-white"
           onClick={startAndStop}
         >
           {isRunning ? "Stop" : "Start"}
         </button>
         <button
-          className="m-[20px] border-0 px-4 py-2 rounded-md cursor-pointer bg-rose-500 text-white"
+          className="m-[20px] border-0 px-10 py-2 rounded-md cursor-pointer bg-rose-500 text-white"
           onClick={reset}
         >
           Reset
