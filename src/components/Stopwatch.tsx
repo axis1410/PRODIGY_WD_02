@@ -4,7 +4,7 @@ import { useTimeContext } from "@/context/TimeContext";
 import { useEffect, useState } from "react";
 
 export default function Stopwatch() {
-  const { stoppedTime, setStoppedTime, clearStoppedTime } = useTimeContext();
+  const { setLaps, setStoppedTime, clearStoppedTime } = useTimeContext();
   const [time, setTime] = useState<number>(0);
   const [isRunning, setIsRunning] = useState<boolean>(false);
 
@@ -33,6 +33,7 @@ export default function Stopwatch() {
   const reset = () => {
     setTime(0);
     clearStoppedTime();
+    setLaps([]);
   };
 
   return (
