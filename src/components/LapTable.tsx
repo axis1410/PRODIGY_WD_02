@@ -1,6 +1,6 @@
 "use client";
 
-import { useTimeContext } from "@/context/TimeContext";
+import { useTimeContext } from "@/hooks/useTimeContext";
 import formatTime from "@/utils/formatTime";
 import { useEffect } from "react";
 

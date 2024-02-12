@@ -20,8 +20,6 @@ const initialContext: TimeContextType = {
 
 const TimeContext = createContext<TimeContextType>(initialContext);
 
-export const useTimeContext = () => useContext(TimeContext);
-
 const TimeContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [stoppedTime, setStoppedTime] = useState<number>(0);
   const [laps, setLaps] = useState<any>([]);
