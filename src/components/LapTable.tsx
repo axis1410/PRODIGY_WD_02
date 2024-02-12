@@ -15,23 +15,18 @@ export default function LapTable() {
 
   return (
     <div className="mt-5 mb-10 w-[540px]">
-      {/* <h2 className="text-xl font-bold mb-2">Lap Times</h2> */}
-      <table className="w-full border-collapse border-gray-400 text-center rounded-lg">
-        <thead>
-          <tr className="bg-gray-200">
-            <th className="border border-gray-400 px-4 py-2 w-1/2">Lap</th>
-            <th className="border border-gray-400 px-4 py-2 w-1/2">Time</th>
-          </tr>
-        </thead>
-        <tbody>
+      <div className="bg-gray-200 rounded-lg p-4">
+        <h2 className="text-xl font-bold mb-2">Lap Times</h2>
+        <div className="grid grid-cols-1 gap-4">
           {laps.map((lapTime, index) => (
-            <tr key={index}>
-              <td className="border border-gray-400 px-4 py-2 w-1/2">{index + 1}</td>
-              <td className="border border-gray-400 px-4 py-2 w-1/2">{formatTime(lapTime)}</td>
-            </tr>
+            <div key={index} className="border border-gray-400 rounded-md p-2">
+              <p className="font-bold">Lap {index + 1}</p>
+              <p>{formatTime(lapTime)}</p>
+            </div>
           ))}
-        </tbody>
-      </table>
+        </div>
+        {laps.length === 0 && <p>No laps recorded yet.</p>}
+      </div>
     </div>
   );
 }
